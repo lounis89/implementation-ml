@@ -442,14 +442,6 @@ def integral_image(image):
             ii[y][x] = ii[y][x-1]+s[y][x] if x-1 >= 0 else s[y][x]
     return ii
     """
-    ii = np.zeros(image.shape)
-    s = np.zeros(image.shape)
-    for y in range(len(image)):
-        for x in range(len(image[y])):
-            s[y][x] = s[y-1][x] + image[y][x] if y-1 >= 0 else image[y][x]
-            ii[y][x] = ii[y][x-1]+s[y][x] if x-1 >= 0 else s[y][x]
-    return ii
-
     new_array = []
     #Pour chaque ligne de la matrice
     for p in image:
@@ -478,8 +470,6 @@ def integral_image(image):
     new_trspose_arr = transpose(step2_array)
     new_trspose_arr = new_trspose_arr.copy_to_host()
     return new_trspose_arr
-
-##Ajout ici
 
 """
 t = nb weak classifier
